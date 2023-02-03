@@ -17,25 +17,34 @@ public class Game {
     }
 
     private void createRooms() {
-        Room centerGarden = new Room("centerGarden short description goes here", "center long descrip");
-        Room northGarden = new Room("northGarden short description goes here", "north long descrip");
-        Room southGarden = new Room("southGarden short description goes here", "south long descrip");
-        Room eastGarden = new Room("eastGarden short description goes here", "east long descrip");
-        Room westGarden = new Room("westGarden short description goes here", "west long descrip");
+        Room Hallway = new Room("A long dark hallway with a scary sound and four old doors. ", "There are four "+
+                "doors the one on north is for kitchen, the one on the south is the bedroom,and the one the the west is for the garden "+
+                ",and the last the door on the east is for the basement ");
+        Room kitchen = new Room("A kitchen a little messy. a pot is cooking something but nobody was in side.some food and snacks are out side",
+                "The food in the pot is already burnt and the smoke are every where. maybe you should shut the fire and save the kitchen.");
+        Room bedroom = new Room("you are at the bed room everything looks new.", "A double bed that looks very comfortable. There is a"+"" +
+                " group photo of a couple on the wall, but I can't see their faces clearly. The bed and everything in the room look very new. Maybe you can sleep in bed to recover your energy.");
+        Room garden = new Room("Garden with a dog seems gauard something", "A garden full of grass. A dog is in the garden Behind the dog, there seems to be a door to the outside." +
+                "But the dog looks very strong. You need to have enough strength and at least one weapon to defeat it.");
+        Room basement = new Room("A messy basement with a lot of boxes", "It looks messy. Several large boxes were placed in the center. It is "+
+                "not clear what is in the box. There is a crowbar beside it that looks like it can be used to open a box or as a weapon.\n");
 
-        centerGarden.setExit("north", northGarden);
-        centerGarden.setExit("south", southGarden);
+        Hallway.setExit("north", kitchen);
+        Hallway.setExit("south", bedroom);
+        Hallway.setExit("east", garden);
+        Hallway.setExit("west", basement);
+        basement.getItem(Crowbar);
         // ... continued
 
-        eastGarden.setExit("west", centerGarden);
+        garden.setExit("west", Hallway);
 
-        Item obj = new Item();
+        Item Crowbar = new Item();
         Item obj2 = new Item();
 
-        player.setItem("one", obj);
-        centerGarden.setItem("two", obj2);
+        player.setItem("one", Crowbar);
+        Hallway.setItem("two", obj2);
 
-        currentRoom = centerGarden;
+        currentRoom = Hallway;
     }
 
     public void play() {
